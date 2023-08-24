@@ -15,4 +15,9 @@ class Appoint extends Model
         'doctorType',
         'patient_id'
     ];
+
+    public function Patient(){
+        return $this->belongsTo("App\Models\Patient");
+    }
+
 }

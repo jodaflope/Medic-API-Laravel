@@ -21,4 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('patients',[PatientController::class, 'index']);
 Route::post('patients', [PatientController::class,'store']);
-Route::put('patients', [PatientController::class,'update']);
+Route::put('patients/{id}', [PatientController::class,'update']);
+
+Route::get('appoint',[AppointController::class, 'index']);
+Route::post('appoint', [AppointController::class,'store']);
+Route::put('appoint/{id}', [AppointController::class,'update']);
