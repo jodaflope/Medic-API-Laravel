@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use Illuminate\Http\Request;
-use Nette\Utils\Strings;
 
 class PatientController extends Controller
 {
@@ -20,6 +19,8 @@ class PatientController extends Controller
     }
 
     public function update(Request $request, String $id){
-        $patients = Patient::
+        $patient = Patient::findOrFail($id);
+        $patient->update($request->all());
+        return response()->json($patient,200);
     }
 }
