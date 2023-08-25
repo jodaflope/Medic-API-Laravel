@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appoint;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class AppointController extends Controller
@@ -24,5 +25,9 @@ class AppointController extends Controller
         return response()->json($appoint,200);
     }
 
+    public function showAll(){
+        $appoints = Patient::with('Appoint')->get();
+        return $appoints;
+    }
     
 }
